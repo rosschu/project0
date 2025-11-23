@@ -112,6 +112,8 @@ For the logistic regression, the L1 penalty term was optimized on AUROC using Gr
 
 ### Predictve Performance (`modelfit.ipynb`)
 
+To evaluate predictive performance, I compare these models with a baseline model that randomly predicts a request to be successful with 46% probability (= empirical success rate in training data). This baseline model is essentially a coin flip: its calibration curve is flat, AUROC is 0.50, and precision, recall, and F1 are all 0.46. These values serve as benchmarks for the results below.
+
 A key component for measuring the quality of referral requests is to train a model that is good at predicting whether they receive referral offers. The calibration plots below compare predicted success rates against actual results on a held-out set of referral requests that the transformer has never seen before. Referral requests are grouped into quantile bins by their predicted success probabilities (horizontal axis), and scatter points correspond to proportions of those requests that actually receive referral offers. The 45-degree line indicates perfect calibration, where predicted success rates align with ground truth probabilities within each bin. 
 
 <p align="center">
